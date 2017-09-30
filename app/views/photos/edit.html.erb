@@ -51,7 +51,7 @@
           Poster
         </label>
 
-        <input type="text" id="poster_id" name="poster_id" placeholder="Poster" class="form-control" value="<%= @photo.poster_id %>">
+        <%= select_tag(:poster_id, options_from_collection_for_select(User.all, :id, :email, @photo.poster_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
