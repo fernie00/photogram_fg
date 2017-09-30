@@ -1,4 +1,14 @@
 class FriendRequestsSentsController < ApplicationController
+  before_action :current_user_must_be_friend_requests_sent_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_friend_requests_sent_user
+    friend_requests_sent = FriendRequestsSent.find(params[:id])
+
+    unless current_user == friend_requests_sent.sender
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @friend_requests_sents = FriendRequestsSent.all
 

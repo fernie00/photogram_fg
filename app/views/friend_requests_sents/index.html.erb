@@ -20,8 +20,11 @@
         <td><%= friend_requests_sent.recipient.email %></td>
         <td>
           <a href="/friend_requests_sents/<%= friend_requests_sent.id %>" class="btn btn-primary">Show</a>
-          <a href="/friend_requests_sents/<%= friend_requests_sent.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_friend_requests_sent/<%= friend_requests_sent.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == friend_requests_sent.sender %>
+            <a href="/friend_requests_sents/<%= friend_requests_sent.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_friend_requests_sent/<%= friend_requests_sent.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>
