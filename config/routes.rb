@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Friend_requests_sent resource:
+  # CREATE
+  get "/friend_requests_sents/new", :controller => "friend_requests_sents", :action => "new"
+  post "/create_friend_requests_sent", :controller => "friend_requests_sents", :action => "create"
+
+  # READ
+  get "/friend_requests_sents", :controller => "friend_requests_sents", :action => "index"
+  get "/friend_requests_sents/:id", :controller => "friend_requests_sents", :action => "show"
+
+  # UPDATE
+  get "/friend_requests_sents/:id/edit", :controller => "friend_requests_sents", :action => "edit"
+  post "/update_friend_requests_sent/:id", :controller => "friend_requests_sents", :action => "update"
+
+  # DELETE
+  get "/delete_friend_requests_sent/:id", :controller => "friend_requests_sents", :action => "destroy"
+  #------------------------------
+
   # Routes for the Comment resource:
   # CREATE
   get "/comments/new", :controller => "comments", :action => "new"
