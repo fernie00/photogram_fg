@@ -6,6 +6,10 @@ class Comment < ApplicationRecord
 
   # Indirect associations
 
+  has_one    :poster,
+             :through => :photo,
+             :source => :poster
+
   # Validations
 
 end
