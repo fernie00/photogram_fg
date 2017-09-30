@@ -21,7 +21,7 @@
         <td><%= photo.name_photo %></td>
         <td><%= photo.caption_photo %></td>
         <td><%= photo.image %></td>
-        <td><%= photo.poster_id %></td>
+        <td><%= photo.poster.email %></td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           <a href="/photos/<%= photo.id %>/edit" class="btn btn-warning">Edit</a>
