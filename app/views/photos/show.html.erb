@@ -15,7 +15,13 @@
       <dd><img src="<%= @photo.image %>" class="img-responsive"></dd>
 
       <dt>Poster</dt>
-      <dd><%= @photo.poster_id %></dd>
+      <dd>
+        <% if @photo.poster.present? %>
+          <a href="/users/<%= @photo.poster_id %>">
+            <%= @photo.poster.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

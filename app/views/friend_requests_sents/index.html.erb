@@ -16,8 +16,20 @@
 
       <% @friend_requests_sents.each do |friend_requests_sent| %>
       <tr>
-        <td><%= friend_requests_sent.sender.email %></td>
-        <td><%= friend_requests_sent.recipient.email %></td>
+        <td>
+          <% if friend_requests_sent.sender.present? %>
+            <a href="/users/<%= friend_requests_sent.sender.id %>">
+              <%= friend_requests_sent.sender.email %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if friend_requests_sent.recipient.present? %>
+            <a href="/users/<%= friend_requests_sent.recipient.id %>">
+              <%= friend_requests_sent.recipient.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/friend_requests_sents/<%= friend_requests_sent.id %>" class="btn btn-primary">Show</a>
           

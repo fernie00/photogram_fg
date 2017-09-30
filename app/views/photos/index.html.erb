@@ -21,7 +21,13 @@
         <td><%= photo.name_photo %></td>
         <td><%= photo.caption_photo %></td>
         <td><img src='<%= photo.image %>' class='img-responsive'></td>
-        <td><%= photo.poster.email %></td>
+        <td>
+          <% if photo.poster.present? %>
+            <a href="/users/<%= photo.poster.id %>">
+              <%= photo.poster.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/photos/<%= photo.id %>" class="btn btn-primary">Show</a>
           

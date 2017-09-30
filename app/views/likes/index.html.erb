@@ -15,7 +15,13 @@
 
       <% @likes.each do |like| %>
       <tr>
-        <td><%= like.photo.name_photo %></td>
+        <td>
+          <% if like.photo.present? %>
+            <a href="/photos/<%= like.photo.id %>">
+              <%= like.photo.name_photo %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/likes/<%= like.id %>" class="btn btn-primary">Show</a>
           <a href="/likes/<%= like.id %>/edit" class="btn btn-warning">Edit</a>
