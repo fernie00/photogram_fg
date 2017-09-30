@@ -5,4 +5,6 @@ class FriendRequestsSent < ApplicationRecord
 
   # Validations
 
+  validates :recipient_id, :presence => true
+
 end
