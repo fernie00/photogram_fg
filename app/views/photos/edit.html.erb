@@ -46,14 +46,8 @@
         <input type="file" id="image" name="image" class="form-control">
       </div>
 
-      <!-- Label and input for poster_id -->
-      <div class="form-group">
-        <label for="poster_id" class="control-label">
-          Poster
-        </label>
-
-        <%= select_tag(:poster_id, options_from_collection_for_select(User.all, :id, :email, @photo.poster_id), :class => "form-control") %>
-      </div>
+      
+      
 
       <button class="btn btn-warning">
         Update Photo
