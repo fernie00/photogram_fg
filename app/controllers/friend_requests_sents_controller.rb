@@ -1,5 +1,5 @@
 class FriendRequestsSentsController < ApplicationController
-  before_action :current_user_must_be_friend_requests_sent_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_friend_requests_sent_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_friend_requests_sent_user
     friend_requests_sent = FriendRequestsSent.find(params[:id])
