@@ -1,0 +1,64 @@
+<!-- Validation failure messages -->
+<% if @photo.errors.any? %>
+  <% @photo.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Photo</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_photo" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for name_photo -->
+      <div class="form-group">
+        <label for="name_photo" class="control-label">
+          Name photo
+        </label>
+
+        <input type="text" id="name_photo" name="name_photo" placeholder="Name photo" class="form-control" value="<%= @photo.name_photo %>">
+      </div>
+
+      <!-- Label and input for caption_photo -->
+      <div class="form-group">
+        <label for="caption_photo" class="control-label">
+          Caption photo
+        </label>
+
+        <textarea id="caption_photo" name="caption_photo" placeholder="Caption photo" class="form-control" rows="3"><%= @photo.caption_photo %></textarea>
+      </div>
+
+      <!-- Label and input for image -->
+      <div class="form-group">
+        <label for="image" class="control-label">
+          Image
+        </label>
+
+        <input type="text" id="image" name="image" placeholder="Image" class="form-control" value="<%= @photo.image %>">
+      </div>
+
+      <!-- Label and input for poster_id -->
+      <div class="form-group">
+        <label for="poster_id" class="control-label">
+          Poster
+        </label>
+
+        <input type="text" id="poster_id" name="poster_id" placeholder="Poster" class="form-control" value="<%= @photo.poster_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Photo
+      </button>
+      or
+      <a href="/photos">Cancel</a>
+    </form>
+  </div>
+</div>
